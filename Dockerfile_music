@@ -1,0 +1,14 @@
+FROM webhippie/php-caddy
+
+MAINTAINER zsnmwy <szlszl35622@gmail.com>
+
+EXPOSE 8080
+
+WORKDIR /srv/www
+
+ENTRYPOINT ["/usr/bin/entrypoint"]
+
+CMD ["/bin/s6-svscan", "/etc/s6"]
+
+RUN wget https://raw.githubusercontent.com/chenxuuu/24h-raspberry-live-on-bilibili/master/php/NeteaseMusicAPI_mini.php && \
+    wget https://raw.githubusercontent.com/chenxuuu/24h-raspberry-live-on-bilibili/master/php/index.php
